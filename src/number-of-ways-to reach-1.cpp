@@ -16,7 +16,7 @@ ll numberOFways(ll n){
     if(n==1)return dp[n]=0;
     if(n==2)return dp[n]=2;
     if(n==3)return dp[n]=3;
-    if(dp[n]!=0)return dp[n];
+    if(dp[n]!=-1)return dp[n];
 
     dp[n]= numberOFways(n-1);
     if(n%2==0){
@@ -34,7 +34,7 @@ ll numberOFways(ll n){
 void solve()
 {
     ll n; cin>>n;
-    //memset(dp, -1, sizeof dp);
+    memset(dp, -1, sizeof dp);
     cout<<numberOFways(n)<<endl;
 
 }

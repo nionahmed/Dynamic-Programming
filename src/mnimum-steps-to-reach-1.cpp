@@ -14,7 +14,7 @@ const ll N=200005;
 ll dp[N];
 ll mini_step(ll n){
     if(n==1)return dp[n]=0;     // n[1] must equal to zero.
-    if(dp[n]!=0)return dp[n];
+    if(dp[n]!=-1)return dp[n];
 
     dp[n]= mini_step(n-1)+1;
     if(n%2==0){
@@ -32,7 +32,7 @@ ll mini_step(ll n){
 void solve()
 {
     ll n; cin>>n;
-    //memset(dp, -1, sizeof dp);
+    memset(dp, -1, sizeof dp);
     cout<<mini_step(n)<<endl;
 
 }
