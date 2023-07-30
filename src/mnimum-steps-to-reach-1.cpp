@@ -13,8 +13,10 @@ const ll N=200005;
 
 ll dp[N];
 ll mini_step(ll n){
-    if(n==1)return dp[n]=0;     // n[1] must equal to zero.
-    if(dp[n]!=0)return dp[n];
+
+    if(n<2)return dp[n]=0;
+    if(n<4) return dp[n]=1;   // n[1] must equal to zero.
+    if(dp[n]!=-1)return dp[n];
 
     dp[n]= mini_step(n-1)+1;
     if(n%2==0){
@@ -27,13 +29,27 @@ ll mini_step(ll n){
 
 }
 
-
-
 void solve()
 {
     ll n; cin>>n;
-    //memset(dp, -1, sizeof dp);
-    cout<<mini_step(n)<<endl;
+//    memset(dp, -1, sizeof(dp));
+//    cout<<mini_step(n)<<endl; ///recursive way
+    memset(dp, 0, sizeof(dp));
+    dp[1]=0;
+    for(int i=2; i<=n; i++){
+        dp[i]=dp[i-1]+1;
+
+        if(i%2==0){
+            dp[i]=min(dp[i], dp[i/2]+1);
+        }
+        if(i%3==0){
+            dp[i]=min(dp[i], dp[i/3]+1);
+        }
+
+    }
+    cout<<dp[n]<<endl;
+
+    /// iterative way.
 
 }
 
