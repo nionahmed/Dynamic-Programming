@@ -35,6 +35,7 @@ void solve()
 {
     ll n; cin>>n;
     memset(dp, -1, sizeof dp);
+
     cout<<numberOFways(n)<<endl;  /// recursive way
     memset(dp, 0, sizeof dp);
     dp[1]=0;

@@ -16,6 +16,7 @@ ll mini_step(ll n){
 
     if(n<2)return dp[n]=0;
     if(n<4) return dp[n]=1;   // n[1] must equal to zero.
+
     if(dp[n]!=-1)return dp[n];
 
     dp[n]= mini_step(n-1)+1;
@@ -32,6 +33,7 @@ ll mini_step(ll n){
 void solve()
 {
     ll n; cin>>n;
+
 //    memset(dp, -1, sizeof(dp));
 //    cout<<mini_step(n)<<endl; ///recursive way
     memset(dp, 0, sizeof(dp));
